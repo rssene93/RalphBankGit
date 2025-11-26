@@ -7,12 +7,45 @@ public class Conta {
     private String titular;
     private double saldo;
     
-    // Construtor inicializando os atributos
+    //Construtor padrão sem argumentos
+    public Conta() {
+    	this.numero = 0;
+    	this.titular = "Sem titular";
+    	this.saldo = 0.0;
+    }
+    
+    // Construtor padrão com os argumentos
     public Conta(int numero, String titular, double saldo) {
         this.numero = numero;
         this.titular = titular;
         this.saldo = saldo;
     }
+    
+    
+    //Métodos GET e SET
+    public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getTitular() {
+		return titular;
+	}
+
+	public void setTitular(String titular) {
+		this.titular = titular;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
     
     // Método para depositar um valor na conta
     public void depositar(double valor) {
@@ -24,7 +57,9 @@ public class Conta {
         }
     }
     
-    // Método para sacar um valor da conta
+    
+
+	// Método para sacar um valor da conta
     public void sacar(double valor) {
         if (valor > 0 && saldo >= valor) {
             saldo -= valor;
@@ -47,8 +82,6 @@ public class Conta {
     
     // Método para imprimir os dados da conta
     public String exibirDados() {
-        return "Conta: " + numero + 
-               " | Titular: " + titular + 
-               " | Saldo: " + saldo;
+        return String.format("Conta: %d | Titular: %s | Saldo: %.2f", numero, titular, saldo);
     }
 }
